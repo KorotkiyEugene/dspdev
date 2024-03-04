@@ -1,0 +1,149 @@
+baseURL: https://dspdev.io/
+title: DSPdev blog
+paginate: 8
+theme: PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+defaultContentLanguage: ua
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+languages:
+  ua:
+    languageName: "🇺🇦"
+    weight: 1
+    menu:
+      main:
+        - name: Дописи
+          url: archives/
+          weight: 5
+        - name: Пошук
+          url: search/
+          weight: 10
+        - name: Теги
+          url: tags/
+          weight: 10
+    params:
+      languageAltTitle: Українська
+      homeInfoParams:
+        Title: "Блог про DSP | FPGA | SDR"
+        Content: "Life is complex - it has both real and imaginary parts"
+      
+  en:
+    languageName: "🇬🇧"
+    weight: 2
+    menu:
+      main:
+        - name: Archive
+          url: archives/
+          weight: 5
+        - name: Search
+          url: search/
+          weight: 10
+        - name: Tags
+          url: tags/
+          weight: 10
+    params:
+      languageAltTitle: English
+      homeInfoParams:
+        Title: "Blog about DSP | FPGA | SDR"
+        Content: "Life is complex - it has both real and imaginary parts"
+
+params:
+  env: production
+  title: "DSPdev blog"
+  description: "DSPdev: Blog about DSP | FPGA | SDR"
+  keywords: [Blog, DSP, SDR, FPGA, Verification]
+  images: ["android-chrome-512x512.png"]
+  author: "Ievgen Korotkyi"
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  displayFullLangName: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: true
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+  math: true
+  ShowAllPagesInArchive: true
+
+  assets:
+    disableHLJS: true
+
+  label:
+    text: "DSPdev.io"
+    #icon: /favicon-32x32.png
+    #iconHeight: 32
+
+  socialIcons: 
+    - name: github
+      title: View Source on Github
+      url: "https://github.com/KorotkiyEugene/"
+    - name: facebook
+      title: Follow on FB
+      url: "https://www.facebook.com/korotkiy.eugene/"
+    - name: email
+      title: Send an email
+      url: "mailto:korotkiy.eugene@gmail.com"
+    - name: telegram
+      url: "https://t.me/Korotkiy_Eugene"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/ievgenkorotkyi/"
+    - name: x
+      url: "https://twitter.com/IevgenKorotkyi/"
+
+  cover:
+    linkFullImages: true
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: true
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+
+pygmentsUseClasses: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: true
+    # anchorLineNos: true
+    codeFences: true
+    guessSyntax: false
+    lineNos: false
+    style: monokai
