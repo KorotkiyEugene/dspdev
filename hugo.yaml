@@ -11,6 +11,7 @@ buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
 defaultContentLanguage: ua
+defaultContentLanguageInSubdir: true
 
 minify:
   disableXML: true
@@ -25,6 +26,7 @@ outputs:
 languages:
   ua:
     languageName: "🇺🇦"
+    contentDir: 'content/ua'
     weight: 1
     menu:
       main:
@@ -45,6 +47,7 @@ languages:
       
   en:
     languageName: "🇬🇧"
+    contentDir: 'content/en'
     weight: 2
     menu:
       main:
@@ -137,6 +140,10 @@ params:
 pygmentsUseClasses: true
 
 markup:
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 1
   goldmark:
     renderer:
       unsafe: true

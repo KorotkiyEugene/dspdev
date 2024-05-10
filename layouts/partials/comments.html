@@ -1,0 +1,42 @@
+<div class="giscus_comments">
+    <script src="https://giscus.app/client.js"
+        data-repo="KorotkiyEugene/dspdev"
+        data-repo-id="R_kgDOLbREUw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOLbREU84CfRBK"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+    </script>
+</div>
+
+<script>
+    document.querySelector("div.giscus_comments > script").setAttribute(
+        'data-theme',
+        localStorage.getItem('pref-theme') 
+            ? localStorage.getItem('pref-theme') 
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'transparent_dark' : 'light')
+    );
+    
+    document.querySelector('#theme-toggle').addEventListener('click', () => {
+        let g = document.querySelector('iframe.giscus-frame');
+        if (g) {
+            g.contentWindow.postMessage({
+                giscus: {
+                    setConfig: {
+                        theme: localStorage.getItem('pref-theme') 
+                            ? (localStorage.getItem('pref-theme') === 'dark' ? 'light' : 'transparent_dark')
+                            : (document.body.className.includes("dark") ? 'light' : 'transparent_dark')
+                    }
+                }
+            }, 'https://giscus.app');
+        }
+    });
+</script>
