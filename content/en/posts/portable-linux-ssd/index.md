@@ -9,7 +9,7 @@ draft: false
 cover:
     image: "img/cover.jpg"
     alt: "SSD partitions in GParted"
-    relative: false
+    relative: true
     hiddenInSingle: false 
 showToc: true
 # tocOpen: false
