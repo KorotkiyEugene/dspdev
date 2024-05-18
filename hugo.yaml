@@ -13,6 +13,8 @@ pygmentsUseClasses: true
 defaultContentLanguage: ua
 defaultContentLanguageInSubdir: true
 
+googleAnalytics: G-649XSS8HW8
+
 minify:
   disableXML: true
   minifyOutput: true
