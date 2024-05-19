@@ -25,7 +25,7 @@ draft: false
 
 - Компілимо і інсталимо лібу:
 
-  ```
+  ```bash
   cd ./libpng-1.2.59
   ./configure --prefix=/usr/local
   make
@@ -35,7 +35,7 @@ draft: false
 
 Для роботи USB-Blaster (код девайсу 09fb:6001) потрібна 32-розрядна ліба libudev1:i386. Без цієї ліби при спробі сканування JTAG ланцюжка отримаєте "Unable to read device chain - JTAG chain broken". При цьому новіший програматор USB-Blaster 2 (код девайсу 09fb:6010) працює без проблем.
 
-```
+```bash
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt-get install libudev1:i386
@@ -52,7 +52,7 @@ sudo ln -sf /lib/x86_64-linux-gnu/libudev.so.1 /lib/x86_64-linux-gnu/libudev.so.
 
 Інсталите Quartus виконавши в терміналі:
 
-```
+```bash
 $DOWNLOADDIR/components/QuartusLiteSetup-$VER-linux.run \
   --mode unattended \
   --unattendedmodeui none \
@@ -63,7 +63,7 @@ $DOWNLOADDIR/components/QuartusLiteSetup-$VER-linux.run \
 
 Замість $DOWNLOADDIR, $VER та $INSTALLDIR підставляєте відповідні значення. В моєму випадку це було:
 
-```
+```bash
 ./QuartusSetup-17.1.0.590-linux.run \  
   --mode unattended \  
   --unattendedmodeui none \
@@ -76,7 +76,7 @@ $DOWNLOADDIR/components/QuartusLiteSetup-$VER-linux.run \
 
 Далі встановлюєте ModelSim та QuartusHelp:
 
-```
+```bash
 ./ModelSimSetup-17.1.0.590-linux.run \
   --mode unattended \
   --unattendedmodeui none \
@@ -102,7 +102,7 @@ $DOWNLOADDIR/components/QuartusLiteSetup-$VER-linux.run \
 
 Тут все просто. Як вказано вище встановлюєте libudev1:i386, а потім налаштовуєте правила udev створивши файл /etc/udev/rules.d/51-usbblaster.rules з наступним вмістом (для цього знадобляться привілегії root):
 
-```
+```bash
 # USB Blaster
 SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6001", MODE="0666", NAME="bus/usb/$env{BUSNUM}/$env{DEVNUM}", RUN+="/bin/chmod 0666 %c"
 SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="09fb", ATTR{idProduct}=="6002", MODE="0666", NAME="bus/usb/$env{BUSNUM}/$env{DEVNUM}", RUN+="/bin/chmod 0666 %c"
